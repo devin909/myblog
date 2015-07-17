@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initialy-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="edge">
+  <meta name="author" content="Devin Lee">
+	<title><%= full_title(yield(:title)) %></title>
+  <%= stylesheet_link_tag "custom", :media => "all", 'data-turbolinks-track'=>true%>
+  <%= stylesheet_link_tag "application", params[:controller], :media => "all", 'data-turbolinks-track'=>true%>
+	<%= javascript_include_tag 'application', params[:controller], 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+	<%= render 'layouts/shim' %>
+
+  <%= favicon_link_tag 'favicon.ico' %>
+</head>
+<body>
+ <%= render 'layouts/header'%>
+ <div class="container">
+  <%= yield %>
+  <%= render 'layouts/footer'%>
+</div>
+
+</body>
+</html>

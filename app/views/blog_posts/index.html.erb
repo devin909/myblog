@@ -1,0 +1,45 @@
+<% provide(:title, "Blog") 
+provide(:header_title, "Blog")
+provide(:header_subtitle, "My thoughts, rants, and discoveries.")
+%>
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <hr>
+    <% @blog_posts.each do |blog_post| %>
+    <div class="post-preview">
+      <%= link_to (blog_post) do %>
+      <h2 class="post-title">
+        <%= blog_post.title %>
+      </h2>
+      <h3 class="post-subtitle">
+        <%= blog_post.subtitle%>
+      </h3>
+      <p class="post-meta">Posted on <%= blog_post.created_at.strftime('%m/%d/%Y')%></p>
+      <hr>
+      <% end%>
+    </div>
+    <% end %>
+    
+    <!-- Pager -->
+    <ul class="pager">
+      <li class="next">
+        <a href="#">Older Posts &rarr;</a>
+      </li>
+      
+    </ul>
+
+    <% if admin_signed_in? %>
+    <!-- Pager -->
+    <ul class="pager">
+      <li class="next">
+        <%= link_to 'New Blog post', new_blog_post_path %>
+      </li>
+      
+    </ul>
+    
+    <% end%>
+  </div>
+
+</div>
+
+

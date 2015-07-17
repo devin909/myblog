@@ -1,0 +1,12 @@
+// Place all the styles related to the BlogPosts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
+@import "mixins";
+.post-title, .post-subtitle {
+  color: $gray-dark;
+}
+.intro-header {
+  background-image: url("https://s3.amazonaws.com/devin-lee-assets/landscape.jpg") !important;
+
+}

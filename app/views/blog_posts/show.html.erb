@@ -1,0 +1,16 @@
+<% provide(:title, @blog_post.title) 
+provide(:header_title, @blog_post.title)
+provide(:header_subtitle, @blog_post.subtitle)
+%>
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <p>
+      <%= raw@blog_post.content %>
+    </p>
+    <% if admin_signed_in? %>
+    <%= link_to 'Delete', @blog_post, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    <%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
+    <%= link_to 'Back', blog_posts_path %>
+    <% end %>
+  </div>
+</div>

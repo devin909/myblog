@@ -1,0 +1,13 @@
+<footer class="footer col-md-10 col-md-offset-1">
+  <small>
+    Devin Lee &copy; 2015
+  </small>
+  <nav>
+    <ul>
+      <% if admin_signed_in? %>
+      <li class="nav-item"><small><%= link_to("Sign out",destroy_admin_session_path, :method=>:delete) %></small></li>
+      <% end %>
+      <li><small><%= link_to "Contact me", static_contact_path %></small></li>
+    </ul>
+  </nav>
+</footer>
