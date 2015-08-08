@@ -8,7 +8,7 @@
 }
 .intro-header {
   background-image: url("https://s3.amazonaws.com/devin-lee-assets/landscape.jpg") !important;
-
+  @include background-cover;
 }
 .next_page, .previous_page {
   display: inline-block;
