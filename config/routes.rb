@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   devise_for :admins
   authenticate :admin do
     resources :blog_posts, only: [:new, :create, :edit, :update, :destroy]
+    resources :projects, only: [:new, :create, :edit, :update, :destroy]
   end
   resources :blog_posts, only: [:index, :show]
+  resources :projects, only: [:index,:show]
 
   root 'static#home'
 

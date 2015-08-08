@@ -1,0 +1,39 @@
+<% provide(:title, "Projects") 
+provide(:header_title, "Projects")
+provide(:header_subtitle, "Creating tangible and intangible traces that I walked on this fine planet!")
+%>
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <hr>
+    <% @projects.each do |project| %>
+    <div class="post-preview">
+      <%= link_to (project) do %>
+      <h2 class="post-title">
+        <%= project.title %>
+      </h2>
+      <h3 class="post-subtitle">
+        <%= project.subtitle%>
+      </h3>
+      <p class="post-meta">Posted on <%= project.created_at.strftime('%m/%d/%Y')%></p>
+      <hr>
+      <% end%>
+    </div>
+    <% end %>
+    <%= will_paginate @projects, :page_links => false%>
+    
+
+    <% if admin_signed_in? %>
+    <!-- Pager -->
+    <ul class="pager">
+      <li class="next">
+        <%= link_to 'New Project Post', new_project_path %>
+      </li>
+      
+    </ul>
+    
+    <% end%>
+  </div>
+
+</div>
+
+

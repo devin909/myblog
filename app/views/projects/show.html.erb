@@ -1,0 +1,16 @@
+<% provide(:title, @project.title) 
+provide(:header_title, @project.title)
+provide(:header_subtitle, @project.subtitle)
+%>
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <p>
+      <%= raw@project.content %>
+    </p>
+    <% if admin_signed_in? %>
+    <%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    <%= link_to 'Edit', edit_project_path(@project) %> |
+    <%= link_to 'Back', projects_path %>
+    <% end %>
+  </div>
+</div>

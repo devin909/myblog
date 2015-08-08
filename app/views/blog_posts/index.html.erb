@@ -19,14 +19,7 @@ provide(:header_subtitle, "My thoughts, rants, and discoveries.")
       <% end%>
     </div>
     <% end %>
-    
-    <!-- Pager -->
-    <ul class="pager">
-      <li class="next">
-        <a href="#">Older Posts &rarr;</a>
-      </li>
-      
-    </ul>
+    <%= will_paginate @blog_posts, :page_links => false%>
 
     <% if admin_signed_in? %>
     <!-- Pager -->
