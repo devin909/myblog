@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :admins
-  resources :blog_posts, only: [:index, :show]
-  resources :projects, only: [:index,:show]
+
   resources :contacts, only: [:new, :create]
   authenticate :admin do
     resources :blog_posts, only: [:new, :create, :edit, :update, :destroy]
     resources :projects, only: [:new, :create, :edit, :update, :destroy]
     resources :contacts, only: [:index, :edit, :update, :destroy, :show]
   end
+    resources :blog_posts, only: [:index, :show]
+  resources :projects, only: [:index,:show]
 
   root 'static#home'
 
