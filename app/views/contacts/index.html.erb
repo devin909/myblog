@@ -1,0 +1,26 @@
+<% provide(:title, "Contacts") 
+provide(:header_title, "Contacts")
+provide(:header_subtitle, "My inbox.")
+%>
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <hr>
+    <% @contacts.each do |contact| %>
+    <div class="post-preview">
+      <%= link_to (contact) do %>
+      <h2 class="post-title">
+        <%= contact.name %>
+      </h2>
+      <h3 class="post-subtitle">
+        <%= contact.email%>
+      </h3>
+      <p class="post-meta">Posted on <%= contact.created_at.strftime('%m/%d/%Y')%></p>
+      <hr>
+      <% end%>
+    </div>
+    <% end %>
+    <%= will_paginate @contacts, :page_links => false%>
+
+  </div>
+
+</div>

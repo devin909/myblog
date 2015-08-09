@@ -12,6 +12,6 @@ Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.precompile += %w( ckeditor/* )
 Rails.application.config.assets.precompile += %w( custom.css )
-%w( blog_posts static projects ).each do |controller|
+%w( blog_posts static projects contacts ).each do |controller|
   Rails.application.config.assets.precompile += ["#{controller}.js", "#{controller}.css", ]
 end

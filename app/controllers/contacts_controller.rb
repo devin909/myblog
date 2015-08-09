@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_contact, only: [:edit, :update, :destroy]
   # GET /contacts
   # GET /contacts.json
   def index
@@ -10,6 +10,7 @@ class ContactsController < ApplicationController
   # GET /contacts/1
   # GET /contacts/1.json
   def show
+    @contact = Contact.find(params[:id])
   end
 
   # GET /contacts/new
@@ -28,7 +29,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
-        format.html { redirect_to @contact, notice: 'Contact message was successfully sent.' }
+        format.html { redirect_to root_path, notice: 'Contact message was successfully sent.' }
         format.json { render :show, status: :created, location: @contact }
       else
         format.html { render :new }
@@ -36,4 +37,16 @@ class ContactsController < ApplicationController
       end
     end
   end
-end
+
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_contact
+      @contact = Contact.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def contact_params
+      params.require(:contact).permit(:name, :email, :phone, :message)
+    end
+  end

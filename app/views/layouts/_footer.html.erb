@@ -5,9 +5,13 @@
   <nav>
     <ul>
       <% if admin_signed_in? %>
-      <li class="nav-item"><small><%= link_to("Sign out",destroy_admin_session_path, :method=>:delete) %></small></li>
+      <li class="nav-item"><small><%= link_to("Inbox", contacts_path)%> | <%= link_to("Sign out",destroy_admin_session_path, :method=>:delete) %></small></li>
       <% end %>
-      <li><small><%= link_to "Contact me", static_contact_path %></small></li>
+      <li><small><a href="https://www.linkedin.com/pub/devin-lee/55/347/a05">
+
+        <img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_profile_greytxt_80x15.png" width="80" height="15" border="0" alt="View Devin Lee's profile on LinkedIn">
+        
+        </a> | <%= link_to "Contact me", new_contact_path %></small></li>
     </ul>
   </nav>
 </footer>

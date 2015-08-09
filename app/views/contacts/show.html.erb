@@ -1,0 +1,17 @@
+<% provide(:title, Contact) 
+provide(:header_title, @contact.name)
+provide(:header_subtitle, @contact.email)
+%>
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <p>Phone number: <%= @contact.phone%></p>
+    <p>
+      <%= raw@contact.message %>
+    </p>
+    <% if admin_signed_in? %>
+    <%= link_to 'Delete', @contact, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    <%= link_to 'Edit', edit_contact_path(@contact) %> |
+    <%= link_to 'Back', contacts_path %>
+    <% end %>
+  </div>
+</div>
