@@ -1,3 +1,19 @@
 // Place all the styles related to the contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
+@import "mixins";
+.post-title, .post-subtitle {
+  color: $gray-dark;
+}
+.intro-header {
+  background-image: url("https://s3.amazonaws.com/devin-lee-assets/mountains.jpg") !important;
+  @include background-cover;
+}
+.next_page, .previous_page {
+  display: inline-block;
+  padding: 5px 14px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+}
